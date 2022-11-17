@@ -3,6 +3,8 @@
     //to tell that this file belong where we describe
     namespace App\Http\Controllers;
 
+    use App\Models\posts;
+
     class PagesController extends Controller{
         
         public function getIndex(){
@@ -12,7 +14,9 @@
             #compile or process data from the medel if needed
             #pass that data to the correct view
 
-            return view('pages.welcome');
+
+            $post = posts::all();
+            return view('pages.welcome')->with('post', $post);
         }
 
         public function getAbout(){
