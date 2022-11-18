@@ -7,7 +7,7 @@
     <div class="row">
 
     
-    <div class="col-md-4">
+    <div class="col-md-3">
         <div class="flex-fill d-flex text-dark text-start " style="width: 100%; height: 100%;">
             <div class="h-20 p-5 bg-light border rounded-3 text-dark w-100">
                 <p>
@@ -29,7 +29,7 @@
             
         </div>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9">
         <div class="container">
             <div class="container-fluid py-5 bg-light text-dark rounded">
                 <h1 class="display-5 fw-bold">Heading</h1>
@@ -53,9 +53,9 @@
         <div class="row align-items-md-stretch">
             <div class="col-md-8">
                 @foreach ($post as $item)
-                    <div class="h-20 p-5 text-white bg-dark rounded-3">
+                    <div class="h-20 p-5 text-white bg-dark rounded-3 text-start">
                         <h2>{{ $item->title }}</h2>
-                        <p class="lead">{{ $item->body }}</p>
+                        <p class="lead">{{ substr($item->body, 0, 300) }}{{ strlen($item->body) > 300 ? "..." : ""}}</p>
                         <a href="posts/{{ $item->id }}" class="btn btn-outline-light">See Post</a>
                     </div>
                 @endforeach
