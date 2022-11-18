@@ -11,6 +11,10 @@
             {!! Form::open(['route' => 'posts.store','class' => 'text-start']) !!}
                 {{Form::label('title', 'Title:' ,['class' => 'control-label'])}}
                 {{Form::text('title', null, ['class' => 'form-control mb-2'])}}
+
+                {!! Form::label('slug', 'Slug:', ) !!}
+                {!! Form::text('slug', null, ['class' => 'form-control']) !!}
+
                 {!! Form::label('body', 'Post Body :') !!}
                 {!! Form::textarea('body', null, ['class'=> 'form-control mb-2']) !!}
                 {!! Form::submit('Create Post', ['class' => 'btn btn-success btn-lg']) !!}

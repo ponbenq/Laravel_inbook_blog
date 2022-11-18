@@ -13,15 +13,19 @@
             <div class="container h-100">
                 <div class="well h-100">
                     <div class="row pt-2 p-2">
+                        <dl class="dl-horizontal">
+                            <dt>Url:</dt>
+                            <dd><a href="{{ route('blog.single',$post->slug) }}">{{url('blog/'.$post->slug)}}</a></dd>
+                        </dl>
                         <div class="col-sm-6">
                             <dl class="dl-horizontal">
-                                <dt>Crate At:</dt>
+                                <label>Crate At:</label>
                                 <dd>{{ date('M j, Y h:ia', strtotime($post->created_at)) }}</dd>
                             </dl>
                         </div>
                         <div class="col-sm-6">
                             <dl class="dl-horizontal">
-                                <dt>Last Updated:</dt>
+                                <label>Last Updated:</label>
                                 <dd>{{ date('M j, Y h:ia', strtotime($post->updated_at)) }}</dd>
                             </dl>
                         </div>

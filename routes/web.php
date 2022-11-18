@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
@@ -14,10 +15,18 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('contact', [PagesController::class,'getContact']);
 
-Route::get('about', [PagesController::class, 'getAbout']);
+Route::group(['middleware' => ['web']], function () {
+  
 
-Route::get('/', [PagesController::class, 'getIndex']);
+    Route::get('blog/{slug}', ['uses' => 'App\Http\Controllers\BlogController@getSingle', 'as' => 'blog.single'])->where('slug', '[\w\d\-\_]+');
+    Route::get('blog', ['uses' => 'App\Http\Controllers\BlogController@getIndex', 'as' => 'blog.index']);
 
-Route::resource('posts', PostController::class);
+    Route::get('contact', [PagesController::class, 'getContact']);
+
+    Route::get('about', [PagesController::class, 'getAbout']);
+
+    Route::get('/', [PagesController::class, 'getIndex']);
+
+    Route::resource('posts', PostController::class);
+});

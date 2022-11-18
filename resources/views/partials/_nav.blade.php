@@ -1,6 +1,6 @@
  {{-- default nav bar --}}
 
- <div class="container ">
+ <div class="container mb-2">
      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
          <div class="container-fluid">
              <a class="navbar-brand" href="#">InBook</a>
@@ -13,6 +13,9 @@
                      <li class="nav-item">
                          <a class="nav-link {{ Request::is('/') ? "active" : ""}}" aria-current="page" href="/">Home</a>
                      </li>
+                     <li class="nav-item">
+                        <a class="nav-link {{ Request::is('blog') ? "active" : ""}}" href="/blog">Blog</a>
+                    </li>
                      <li class="nav-item">
                          <a class="nav-link {{ Request::is('about') ? "active" : ""}}" href="/about">About</a>
                      </li>
