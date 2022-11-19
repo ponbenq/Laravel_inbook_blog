@@ -24,7 +24,7 @@
     @endforeach
 
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 offset-md">
             {{$post->links('pagination::bootstrap-4')}}
         </div>
     </div>

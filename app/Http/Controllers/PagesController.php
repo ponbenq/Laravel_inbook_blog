@@ -15,7 +15,8 @@
             #pass that data to the correct view
 
 
-            $post = posts::select('*')->orderBy('created_at', 'desc')->get();
+            $post = posts::select('*')->orderBy('created_at', 'desc')->paginate(3);
+            
             return view('pages.welcome')->with('post', $post);
         }
 

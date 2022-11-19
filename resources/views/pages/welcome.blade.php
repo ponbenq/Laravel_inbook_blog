@@ -1,6 +1,7 @@
 @extends('main')
 
 @section('title', ' | HomePage')
+
 @section('jumbotron')
     {{-- jumbotron --}}
     <hr><br><br>
@@ -96,3 +97,4 @@
         </div>
     </div>
 @endsection
+

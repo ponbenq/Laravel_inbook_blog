@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,7 +27,11 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('about', [PagesController::class, 'getAbout']);
 
-    Route::get('/', [PagesController::class, 'getIndex']);
+    Route::get('/', [PagesController::class, 'getIndex'])->name('welcome');
 
     Route::resource('posts', PostController::class);
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
