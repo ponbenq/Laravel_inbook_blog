@@ -4,7 +4,8 @@
     namespace App\Http\Controllers;
 
     use App\Models\posts;
-
+    use Illuminate\Http\Request;
+    use Illuminate\Support\Facades\Mail;
     class PagesController extends Controller{
         
         public function getIndex(){
@@ -37,6 +38,30 @@
 
         public function getContact(){
             return view('pages.contact');
+        }
+
+        public function postContact(Request $request){
+            $this->validate($request, [
+                'email' => 'required|email',
+                'subject' => 'min:3',
+                'message' => 'min:10']);
+    
+            $data = array(
+                'email' => $request->email,
+                'subject' => $request->subject,
+                'bodyMessage' => $request->message
+                );
+    
+            Mail::send('emails.contact', $data, function($message) use ($data){
+                $message->from($data['email']);
+                $message->to('hello@devmarketer.io');
+                $message->subject($data['subject']);
+            });
+            // Mail::to('wichitpon045@gmail.com')->send($data['bodyMessage']);
+    
+            session()->flash('success', 'Your Email was Sent!');
+    
+            return redirect('/');
         }
     }
 

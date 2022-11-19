@@ -5,7 +5,7 @@
     @include('partials._head')
 </head>
 
-<body class="bg-dark text-white justify-content-center align-items-center text-center">
+<body class="{{-- bg-dark  --}}  justify-content-center align-items-center text-center">
     {{-- navbar --}}
     @include('partials._nav')
     {{-- end navbar --}}

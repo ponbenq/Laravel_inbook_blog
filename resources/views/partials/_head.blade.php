@@ -12,12 +12,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato" rel="stylesheet">
 
+@yield('stylesheet')
+
 {{-- bootstrap5 icon CDN --}}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+{{ Html::style('css/css.css') }}
+<link rel="stylesheet" type="text/css" href="{{ URL::to('css/app.css') }}">
 {{-- Style --}}
 <style>
     body {
         font-family: 'Lato';
+        background-color: white;
+    }
+    hr{
+        background-color: #74706f;
     }
 </style>
 <title>InBook @yield('title')</title>

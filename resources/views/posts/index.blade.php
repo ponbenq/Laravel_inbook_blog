@@ -20,7 +20,7 @@
 
 	<div class="row text-start">
 		<div class="col-md-12">
-			<table class="table text-light">
+			<table class="table ">
 				<thead>
 					<th>#</th>
 					<th>Title</th>
@@ -35,7 +35,7 @@
 						<tr>
 							<th>{{ $item->id }}</th>
 							<td>{{ $item->title }}</td>
-							<td>{{ substr($item->body, 0, 50) }}{{ strlen($item->body) > 50 ? "..." : "" }}</td>
+							<td>{{ substr(strip_tags($item->body), 0, 50) }}{{ strlen(strip_tags($item->body)) > 50 ? "..." : "" }}</td>
 							<td><a href="{{ route('posts.show', $item->id) }}" class="btn btn-default btn-light btn-sm m-1">View</a> <a href="{{ route('posts.edit', $item->id) }}" class="btn btn-default btn-light btn-sm m-1">Edit</a></td>
 						</tr>
 

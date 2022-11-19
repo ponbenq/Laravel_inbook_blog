@@ -6,7 +6,7 @@
     <div class="row p-3 m-3">
         <div class="col-md-8 text-start">
             <h1>{{ $post->title }}</h1>
-            <p class="lead">{{ $post->body }}</p>
+            <p class="lead">{!!$post->body !!}</p>
         </div>
 
         <div class="col-md-4 bg-light text-dark rounded">

@@ -5,25 +5,32 @@
     <hr><br><br>
 
     <div class="container ">
-        <div class="container-fluid py-5 bg-light text-dark rounded col-md-6">
+        <div class="container-fluid py-5  text-light rounded col-md-6" style="background-color: #2f3a56;">
             <div class="    ">
                 <h1 class="display-5 fw-bold">Contact Us</h1>
                 <hr>
-                <form class="mx-3 text-start">
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <form class="mx-3 text-start" action="{{ url('contact') }}" method="POST">
+                    {{ csrf_field() }}
+                    <div class="mb-3 form-group">
+                        <div class="form-group">
+                            <label name="email">Email:</label>
+                            <input id="email" name="email" class="form-control">
+                        </div>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    <div class="mb-3 form-group">
+                        <div class="form-group">
+                            <label name="subject">Subject:</label>
+                            <input id="subject" name="subject" class="form-control">
+                        </div>
                     </div>
-                    <div class="mb-3 form-check">
-                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+
+                    <div class="mb-3 form-group">
+                        <div class="form-group">
+                            <label name="message">Message:</label>
+                            <textarea id="message" name="message" class="form-control">Type your message here...</textarea>
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-success">Submit</button>
                 </form>
 
             </div>
@@ -32,5 +39,5 @@
     </div>
 
     <br><br>
-    
+
 @endsection

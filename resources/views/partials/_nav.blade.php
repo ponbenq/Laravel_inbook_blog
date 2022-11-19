@@ -1,7 +1,18 @@
+ @section('stylesheet')
+
+    <style>
+        #nav-out{
+            background-color: white;
+        }
+        
+    </style>
+
+ @endsection
+ 
  {{-- default nav bar --}}
 
- <div class="container mb-2">
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+ <div class="container mb-2 " id="conatiner-nav">
+     <nav class="navbar navbar-expand-lg navbar-light" id="nav-out">
          <div class="container-fluid">
              <a class="navbar-brand" href="/">InBook</a>
              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -53,7 +64,7 @@
                          </ul>
                      </li>
                      @else
-                     <a href="{{ route('login')}}" class="btn btn-outline-light btn-sm p-2 me-2">Login</a>
+                     <a href="{{ route('login')}}" class="btn btn-outline-dark btn-sm p-2 me-2">Login</a>
                      @endauth
                  </ul>
              </div>
